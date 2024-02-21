@@ -26,7 +26,6 @@ jobs:
             ls -al
             rm -rf README.md .circleci .git check_state
             ls -al
-            aws s3 rm s3://circle-test-bucket-1/ --recursive
       - aws-s3/sync:
           from: "./"
           to: "s3://circle-test-bucket-1/"
