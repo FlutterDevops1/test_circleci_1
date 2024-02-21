@@ -20,7 +20,7 @@ jobs:
       - aws-cli/setup:
           aws_access_key_id: "AKIAV6BPTWTLQQDLRJBV"
           aws_secret_access_key: "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"
-          region: ap-south-1
+          region: "ap-south-1"
 
       - aws-s3/sync:
           from: "./"  
