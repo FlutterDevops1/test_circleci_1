@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
         name: Setting env
-        commands: |
+        command: |
           export aws_secret="nq4WLU0AyiXpNPwELAV6ZEazbdx25QuAg6nUw8yZ"
           export aws_access="AKIAV6BPTWTLQQDLRJBV"
           export region="ap-south-1"
