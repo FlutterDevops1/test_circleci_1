@@ -15,12 +15,18 @@ jobs:
 
     working_directory: ~/repo
     steps:
-      - checkout
+      - checkout 
+      - run:
+          name: Setting env
+          commands: |
+            export aws_secret="nq4WLU0AyiXpNPwELAV6ZEazbdx25QuAg6nUw8yZ"
+            export aws_access="AKIAV6BPTWTLQQDLRJBV"
+            export region="ap-south-1"
 
       - aws-cli/setup:
-          aws_access_key_id: "AKIAV6BPTWTLQQDLRJBV"
-          aws_secret_access_key: "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"
-          region: "ap-south-1"
+          aws_access_key_id: aws_access
+          aws_secret_access_key: aws_secret
+          region: region
 
       - aws-s3/sync:
           from: "./"  
