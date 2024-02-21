@@ -10,15 +10,16 @@ jobs:
   job3:
     docker:
       - image: cimg/aws:2023.12
-
+    environment:
+      region: "ap-south-1"
     working_directory: ~/repo
     steps:
       - checkout
 
       - aws-cli/setup:
-          # aws-access-key-id: aws_access_key
-          # aws-secret-access-key: aws_secret_key
-          # region: region
+          aws-access-key-id: aws_access_key
+          aws-secret-access-key: aws_secret_key
+          region: region
       - run:
           name: Deleting README.md, .git and .circleci
           command: |
@@ -28,7 +29,7 @@ jobs:
       - aws-s3/sync:
           from: "./"
           to: "s3://circle-test-bucket-1/"
-          arguments: "--delete"
+          # arguments: "--delete"
 workflows:
   version: 2
   S3-sync-test:
