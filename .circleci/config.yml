@@ -16,9 +16,9 @@ jobs:
       - checkout
 
       - aws-cli/setup:
-          aws-access-key-id: "AKIAV6BPTWTLQQDLRJBV"
-          aws-secret-access-key: "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"
-          region: "ap-south-1"
+          aws-access-key-id: aws_access_key
+          aws-secret-access-key: aws_secret_key
+          region: region
 
       - aws-s3/sync:
           from: "./"
